@@ -95,7 +95,7 @@ current.color, true);
       const h = canvas.height;
       drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
     }
-    socketRef.current = new WebSocket('ws://'+ window.location.host)
+    socketRef.current = new WebSocket('ws://localhost:8000/ws/')
     socketRef.current.onopen = e => {
       console.log('open', e)
     }

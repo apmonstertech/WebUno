@@ -37,10 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cards.apps.CardsConfig',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'channels',
+    'backend'
 ]
+
+ASGI_APPLICATION = "django_react.routing.application"
+
+CHANNEL_LAYERS = {
+  "default": {
+    "BACKEND": "channels_redis.core.RedisChannelLayer",
+    "CONFIG": {
+      "hosts": [("127.0.0.1", 6379)],
+    },
+  },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'webuno',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'Nostromo6',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -115,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
